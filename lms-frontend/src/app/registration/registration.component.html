@@ -1,0 +1,92 @@
+<div class="register-container">
+  <h2 style="color: green;">Register</h2>
+
+  <form [formGroup]="registerForm" (ngSubmit)="registerUser()">
+    <!-- Full Name -->
+    <div>
+      <label for="name">Full Name</label>
+      <input id="name" formControlName="name" type="text" required />
+      <p *ngIf="registerForm.controls['name'].touched && registerForm.controls['name'].invalid" class="error">
+        Name is required.
+      </p>
+    </div>
+
+    <!-- Email -->
+    <div>
+      <label for="username">Email</label>
+      <input id="username" formControlName="username" type="email" required />
+      <p *ngIf="registerForm.controls['username'].touched && registerForm.controls['username'].hasError('required')" class="error">
+        Email is required.
+      </p>
+      <p *ngIf="registerForm.controls['username'].touched && registerForm.controls['username'].hasError('email')" class="error">
+        Please enter a valid email.
+      </p>
+    </div>
+
+    <!-- Password -->
+    <div>
+      <label for="password">Password</label>
+      <input id="password" formControlName="password" type="password" required />
+      <p *ngIf="registerForm.controls['password'].touched && registerForm.controls['password'].hasError('required')" class="error">
+        Password is required.
+      </p>
+      <p *ngIf="registerForm.controls['password'].touched && registerForm.controls['password'].hasError('minlength')" class="error">
+        Password must be at least 6 characters long.
+      </p>
+    </div>
+
+    <!-- Genres -->
+    <div class="question">
+      <label>What genres do you enjoy reading? <span class="optional">(Optional)</span></label>
+      <div class="option-container">
+        <button type="button" *ngFor="let genre of genres"
+                (click)="toggleSelection(genre, 'genre')"
+                [class.selected]="selectedGenres.includes(genre)">
+          {{ genre }}
+        </button>
+      </div>
+    </div>
+
+    <!-- Favorite Authors -->
+    <div class="question">
+      <label>What are some of your favorite authors? <span class="optional">(Optional)</span></label>
+      <div class="option-container">
+        <button type="button" *ngFor="let author of authors"
+                (click)="toggleSelection(author, 'author')"
+                [class.selected]="selectedAuthors.includes(author)">
+          {{ author }}
+        </button>
+      </div>
+    </div>
+
+    <!-- Book Preferences -->
+    <div class="question">
+      <label>What do you look for in a book? <span class="optional">(Optional)</span></label>
+      <div class="option-container">
+        <button type="button" *ngFor="let preference of preferences"
+                (click)="toggleSelection(preference, 'preference')"
+                [class.selected]="selectedPreferences.includes(preference)">
+          {{ preference }}
+        </button>
+      </div>
+    </div>
+
+    <!-- Reading Frequency -->
+    <div class="question">
+      <label>How many books do you read in a month? <span class="optional">(Optional)</span></label>
+      <div class="option-container">
+        <button type="button" *ngFor="let freq of readingFrequencies"
+                (click)="selectFrequency(freq)"
+                [class.selected]="selectedFrequency === freq">
+          {{ freq }}
+        </button>
+      </div>
+    </div>
+
+    <!-- Submit Button -->
+    <button type="submit" [disabled]="registerForm.invalid">Register</button>
+
+    <!-- Error Message -->
+    <p *ngIf="errorMessage" class="error">{{ errorMessage }}</p>
+  </form>
+</div>

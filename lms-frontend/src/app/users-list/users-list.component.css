@@ -1,0 +1,9 @@
+.icon-btn {
+    font-size: 1.5rem;  /* Make the icon larger */
+    cursor: pointer;    /* Show pointer on hover */
+    transition: 0.2s ease-in-out;
+}
+
+.icon-btn:hover {
+    transform: scale(1.2); /* Slight zoom on hover */
+}

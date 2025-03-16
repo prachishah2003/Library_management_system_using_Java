@@ -1,0 +1,57 @@
+<h2>List of available books in the library</h2>
+<table class="table table-success table-striped">
+    <thead>
+        <tr>
+            <th> Book ID </th>
+            <th> Name </th>
+            <th> Author </th>
+            <th> Genre </th>
+            <th> Number of copies available </th>
+            <th> Actions </th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let book of books">
+            <td> {{ book.bookId }} </td>
+            <td> {{ book.bookName }} </td>
+            <td> {{ book.bookAuthor }} </td>
+            <td> {{ book.bookGenre }} </td>
+            <td> {{ book.noOfCopies }} </td>
+            <td>
+                <button (click) = "borrowBook(book.bookId)" class="btn btn-success"> Borrow </button>
+            </td>
+        </tr>
+    </tbody>
+</table>
+<div class="request-book-container">
+    <h3>Couldn't find your book? Request one now.</h3>
+    <form (ngSubmit)="requestBook()">
+      <div class="form-group">
+        <input type="text" [(ngModel)]="requestedBook.bookName" name="bookName" 
+               class="form-control" placeholder="Enter book name" required>
+      </div>
+      <button type="submit" class="btn btn-primary">Request Book</button>
+    </form>
+  </div>
+
+  <div class="feedback-container">
+    <h3 style="color: rgb(24, 70, 43);">We value Your Feedback</h3>
+  
+    <textarea [(ngModel)]="feedbackText" placeholder="Write your feedback..." rows="4"></textarea>
+  
+    <div class="rating">
+      <span *ngFor="let star of [1,2,3,4,5]" (click)="setRating(star)">
+        <i class="fas fa-star" [class.filled]="star <= rating"></i>
+      </span>
+    </div>
+  
+    <button (click)="submitFeedback()">Submit</button>
+  </div>
+  <div *ngIf="feedbackSuccess" class="success-message">
+    {{ feedbackSuccess }}
+  </div>
+  
+  <div *ngIf="feedbackError" class="error-message">
+    {{ feedbackError }}
+  </div>
+  
