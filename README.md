@@ -5,14 +5,8 @@
 </h1>
 
 
-[![Spring Boot](https://img.shields.io/badge/Spring-6DB33F?style=for-the-badge&logo=spring&logoColor=white)]()
-[![Angular](https://img.shields.io/badge/Angular-DD0031?style=for-the-badge&logo=angular&logoColor=white)]()
-[![MySQL](https://img.shields.io/badge/MySQL-00000F?style=for-the-badge&logo=mysql&logoColor=white)]()
-[![Hibernate](https://img.shields.io/badge/Hibernate-59666C?style=for-the-badge&logo=Hibernate&logoColor=white)]()
-[![Maven](https://img.shields.io/badge/apache_maven-C71A36?style=for-the-badge&logo=apachemaven&logoColor=white)]()
-[![Bootstrap](https://img.shields.io/badge/Bootstrap-563D7C?style=for-the-badge&logo=bootstrap&logoColor=white)]()
 
-A full stack application using Spring Boot, Angular and MySQL. 
+A full stack application using Spring Boot, Angular and PostgreSQL (Apache Maven, Hibernate,Bootstrap). 
 * This is a Library Management System with an Admin and a User side for the application. 
 * Admin can perform CRUD with books/users. 
 * User can borrow and return a book. 
@@ -107,11 +101,17 @@ A full stack application using Spring Boot, Angular and MySQL.
 
 # Application Properties
 ```
-server.port = yourPreferredPortNumber
+server.port=port_number
 
-spring.datasource.url = jdbc:mysql://localhost:3306/yourSchemaName
-spring.datasource.username = yourUsername
-spring.datasource.password = yourPassword
+spring.datasource.url=jdbc:postgresql://localhost:5432/database_name
+spring.datasource.username=username
+spring.datasource.password=password
+spring.datasource.driver-class-name=org.postgresql.Driver
+
+# Hibernate settings
+spring.jpa.database-platform=org.hibernate.dialect.PostgreSQLDialect
+spring.jpa.hibernate.ddl-auto=update
+spring.jpa.show-sql=true
 ```
 
 # Development
