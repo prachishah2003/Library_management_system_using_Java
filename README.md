@@ -8,7 +8,9 @@
 
 A full stack application using Spring Boot, Angular and PostgreSQL (Apache Maven, Hibernate,Bootstrap). 
 * This is a Library Management System with an Admin and a User side for the application. 
-* Admin can perform CRUD with books/users. 
+* Admin can perform CRUD with books/users.
+* User can request unavailable books
+* User can give feedback regarding the site and rating to each book while returning 
 * User can borrow and return a book. 
 * Uses JWT to authenticate login.
 * Uses BCryptPasswordEncoder to encrypt the password stored in the database.
