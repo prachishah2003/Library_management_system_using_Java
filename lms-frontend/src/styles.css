@@ -1,0 +1,24 @@
+/* Import Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+
+/* Import Bootstrap */
+@import "bootstrap/dist/css/bootstrap.min.css";
+
+html, body { 
+    height: 100%; 
+    margin: 0; 
+    font-family: 'Poppins', sans-serif !important;
+    background-color: #f3f1d0 !important; /* Light background */
+    color: #212529 !important; /* Dark text */
+}
+
+/* Optional: Customize Headings */
+h1, h2, h3 {
+    font-weight: 600;
+}
+
+/* Optional: Improve Readability for Paragraphs */
+p {
+    font-size: 16px;
+    line-height: 1.6;
+}
