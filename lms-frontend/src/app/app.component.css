@@ -1,0 +1,28 @@
+/* General Layout */
+.main-container {
+  display: flex;
+}
+
+/* Sidebar */
+.sidebar {
+  width: 250px; /* Default width */
+  transition: width 0.3s ease-in-out;
+}
+
+/* Collapsed Sidebar */
+.sidebar.collapsed {
+  width: 80px; /* Shrinks when toggled */
+}
+
+/* Main Content */
+.container {
+  flex-grow: 1;
+  transition: margin-left 0.3s ease-in-out;
+  padding: 20px;
+  margin-left: 250px; /* Matches sidebar width */
+}
+
+/* Adjust when sidebar is collapsed */
+.sidebar.collapsed + .container {
+  margin-left: 80px;
+}

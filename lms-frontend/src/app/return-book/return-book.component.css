@@ -1,0 +1,88 @@
+/* 📦 General Container */
+.return-book-container {
+  max-width: 900px;
+  margin: 30px auto;
+  padding: 20px;
+  background: #f8f9fa; /* Light background for contrast */
+  border-radius: 12px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  text-align: center;
+}
+
+/* 🏷️ Title */
+.section-title {
+  font-size: 26px;
+  color: #222;
+  font-weight: bold;
+  margin-bottom: 20px;
+}
+
+/* 📜 Table Container */
+.table-container {
+  overflow-x: auto; /* Responsive scrolling */
+}
+
+/* 📋 Styled Table */
+.styled-table {
+  width: 100%;
+  border-collapse: collapse;
+  background-color: #ffffff;
+  color: #333;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.1);
+}
+
+/* 🔼 Table Headers */
+.styled-table thead {
+  background: #28a745;
+  color: white;
+}
+
+.styled-table th,
+.styled-table td {
+  padding: 15px;
+  text-align: center;
+  border-bottom: 1px solid #ddd;
+}
+
+/* 🎨 Alternating Row Colors */
+.styled-table tbody tr:nth-child(even) {
+  background-color: #f1f1f1;
+}
+
+.styled-table tbody tr:hover {
+  background-color: #ddd;
+  transition: 0.3s ease-in-out;
+}
+
+/* 🔘 Return Button */
+.return-btn {
+  background: #28a745;
+  color: white;
+  padding: 10px 15px;
+  border: none;
+  border-radius: 5px;
+  font-size: 14px;
+  cursor: pointer;
+  transition: all 0.3s ease-in-out;
+}
+
+.return-btn:hover {
+  background: #218838;
+  transform: scale(1.05);
+}
+
+/* 📱 Responsive Design */
+@media (max-width: 768px) {
+  .styled-table th,
+  .styled-table td {
+      font-size: 14px;
+      padding: 10px;
+  }
+
+  .return-btn {
+      font-size: 12px;
+      padding: 8px 12px;
+  }
+}

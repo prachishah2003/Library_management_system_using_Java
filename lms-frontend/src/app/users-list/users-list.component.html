@@ -1,0 +1,42 @@
+<div class="user-list-container">
+    <h2 class="text-center user-title">👥 User List</h2>
+  
+    <table class="table user-table">
+      <thead class="table-header">
+        <tr>
+          <th>User ID</th>
+          <th>Name</th>
+          <th>Username</th>
+          <th>Role</th>
+          <th>View History</th>
+          <th>Edit User</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let user of users">
+          <td>{{ user.userId }}</td>
+          <td>{{ user.name }}</td>
+          <td>{{ user.username }}</td>
+          <td>
+            <span class="role-badge" [ngClass]="{'admin-role': user.role[0].roleName === 'Admin',
+                                                  'user-role': user.role[0].roleName === 'User'}">
+              {{ user.role[0].roleName }}
+            </span>
+          </td>
+          <td>
+            <i *ngIf="user.role[0].roleName === 'User'" class="fas fa-eye icon-btn text-success"
+               (click)="userDetails(user.userId)"></i>
+          </td>
+          <td>
+            <i class="fas fa-pencil-alt icon-btn text-info"
+               (click)="updateUser(user.userId)"></i>
+          </td>
+          <td>
+            <i class="fas fa-trash text-danger icon-btn"
+               (click)="deleteUser(user.userId)"></i>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  
