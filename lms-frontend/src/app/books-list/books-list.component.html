@@ -1,0 +1,37 @@
+<div class="book-list-container">
+    <h2 class="section-title">📚 Book List</h2>
+    <input type="text" [(ngModel)]="searchQuery" placeholder="Search books..."
+       (keydown)="onSearch($event)">
+
+    <div class="table-container">
+      <table class="styled-table">
+        <thead>
+          <tr>
+            <th>ID</th>
+            <th>Name</th>
+            <th>Author</th>
+            <th>Genre</th>
+            <th>Copies</th>
+            <th>Rating</th>
+            <th>Actions</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let book of books">
+            <td>{{ book.bookId }}</td>
+            <td>{{ book.bookName }}</td>
+            <td>{{ book.bookAuthor }}</td>
+            <td>{{ book.bookGenre }}</td>
+            <td>{{ book.noOfCopies }}</td>
+            <td>⭐ {{ book.averageRating | number:'1.1-1' }}/5</td>
+            <td>
+              <i class="fas fa-eye text-success icon-btn" (click)="bookDetails(book.bookId)"></i>
+              <i class="fas fa-pencil-alt text-info icon-btn" (click)="updateBook(book.bookId)"></i>
+              <i class="fas fa-trash text-danger icon-btn" (click)="deleteBook(book.bookId)"></i>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+  

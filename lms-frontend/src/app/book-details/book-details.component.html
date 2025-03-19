@@ -1,0 +1,23 @@
+<div class="borrow-history-container">
+    <h2 class="text-center borrow-title">📖 Borrow History of <span class="book-name">{{ book.bookName }}</span></h2>
+  
+    <table class="table table-bordered borrow-table">
+      <thead class="table-header">
+        <tr>
+          <th>User ID</th>
+          <th>Issue Date</th>
+          <th>Return Date</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let borrower of borrow">
+          <td>{{ borrower.userId }}</td>
+          <td>{{ borrower.issueDate | date: 'MMM d, y' }}</td>
+          <td [ngClass]="{'not-returned': !borrower.returnDate}">
+            {{ borrower.returnDate ? (borrower.returnDate | date: 'MMM d, y') : '📌 Not Returned Yet' }}
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  
