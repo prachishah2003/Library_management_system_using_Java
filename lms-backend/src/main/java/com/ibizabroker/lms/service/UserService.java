@@ -6,6 +6,7 @@ import com.ibizabroker.lms.entity.Role;
 import com.ibizabroker.lms.entity.Users;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import javax.transaction.Transactional;
@@ -23,7 +24,7 @@ public class UserService {
     private RoleRepository roleRepository;
 
     @Autowired
-    private BCryptPasswordEncoder passwordEncoder;
+    private PasswordEncoder passwordEncoder;
 
     @Transactional
     public void createAdminUserIfNotExists() {
