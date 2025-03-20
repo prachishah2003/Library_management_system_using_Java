@@ -1,0 +1,87 @@
+<!-- Alert Messages - Fixed at Top -->
+<div class="alert-container">
+  <div *ngIf="requestSuccess" class="alert alert-success text-center">{{ requestSuccess }}</div>
+  <div *ngIf="requestError" class="alert alert-danger text-center">{{ requestError }}</div>
+
+  <div *ngIf="borrowSuccess" class="alert alert-success text-center">{{ borrowSuccess }}</div>
+  <div *ngIf="borrowError" class="alert alert-danger text-center">{{ borrowError }}</div>
+
+  <div *ngIf="feedbackSuccess" class="alert alert-success text-center">{{ feedbackSuccess }}</div>
+  <div *ngIf="feedbackError" class="alert alert-danger text-center">{{ feedbackError }}</div>
+</div>
+
+<h2 class="section-title">List of Available Books</h2>
+<input type="text" [(ngModel)]="searchQuery" placeholder="Search books..."
+(keydown)="onSearch($event)" class="search-box" >
+
+<div class="book-list-container">
+  <div class="book-card" *ngFor="let book of books">
+    <div class="book-image-container">
+      <img [src]="book.imageUrl || 'assets/default_book.png'" alt="{{ book.bookName }}" 
+        onerror="this.onerror=null;this.src='assets/default_book.png'" class="book-image">
+    </div>
+    <div class="book-details">
+      <h3 class="book-title">{{ book.bookName }}</h3>
+      
+      <div class="book-rating">
+        <strong>Rating:</strong> ⭐ {{ book.averageRating | number:'1.1-1' }}/5
+      </div>
+
+      <div class="book-meta">
+        <span><strong>Author:</strong> {{ book.bookAuthor }}</span>
+        <span><strong>Genre:</strong> {{ book.bookGenre }}</span>
+      </div>
+
+      <div class="book-copies">
+        <strong>Copies Available:</strong> {{ book.noOfCopies }}
+      </div>
+    </div>
+    
+    <button (click)="borrowBook(book.bookId)" [disabled]="book.noOfCopies === 0" class="btn borrow-btn">Borrow</button>
+  </div>
+</div>
+
+  
+
+
+<!-- Request Book Section -->
+<div class="bottom-sections-container">
+  <!-- Feedback Section -->
+  <div class="feedback-container">
+    <h3 class="text-primary">We Value Your Feedback</h3>
+    <textarea [(ngModel)]="feedbackText" class="form-control" rows="4" placeholder="Write your feedback..." required></textarea>
+
+    <!-- Star Rating -->
+    <div class="rating text-center">
+      <span *ngFor="let star of [1,2,3,4,5]" 
+            (click)="setRating(star)" 
+            [ngClass]="{'text-warning': star <= rating, 'text-secondary': star > rating}"
+            class="fs-3 cursor-pointer">
+        ★
+      </span>
+    </div>
+
+    <button class="btn btn-primary mt-3 w-100" (click)="submitFeedback()">Submit Feedback</button>
+  </div>
+
+  <!-- Request Book Section -->
+  <div class="request-book-container">
+    <h3 class="text-primary">Couldn't find your book? Request one now.</h3>
+    <form (ngSubmit)="requestBook()">
+      <input type="text" [(ngModel)]="requestedBook.bookName" name="bookName" class="form-control" placeholder="Enter book name" required>
+      <button type="submit" class="btn btn-primary mt-2 w-100">Request Book</button>
+    </form>
+  </div>
+</div>
+
+
+
+<!-- Toast for Book Requests -->
+<div class="toast-container position-fixed bottom-0 end-0 p-3">
+  <div id="requestToast" class="toast align-items-center text-bg-success border-0" role="alert" aria-live="assertive" aria-atomic="true">
+    <div class="d-flex">
+      <div class="toast-body">Your book request has been submitted successfully!</div>
+      <button type="button" class="btn-close me-2 m-auto" data-bs-dismiss="toast"></button>
+    </div>
+  </div>
+</div>

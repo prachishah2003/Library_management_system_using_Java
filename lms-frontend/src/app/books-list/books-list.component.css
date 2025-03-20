@@ -1,0 +1,101 @@
+.icon-btn {
+    font-size: 1.5rem;  /* Make the icon larger */
+    cursor: pointer;    /* Show pointer on hover */
+    transition: 0.2s ease-in-out;
+}
+.search-box {
+  width: 100%; /* Adjust width as needed */
+  padding: 9px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  
+}
+
+.icon-btn:hover {
+    transform: scale(1.2); /* Slight zoom on hover */
+}
+/* 📚 Book List Container */
+.book-list-container {
+    max-width: 100%;
+    margin: auto;
+    padding: 20px;
+    background: #f8f9fa;
+    border-radius: 12px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    margin-bottom: 60px;
+  }
+  
+  /* 🔹 Section Title */
+  .section-title {
+    font-size: 26px;
+    color: #333;
+    font-weight: bold;
+    margin-bottom: 20px;
+    margin-top: 20px;
+  }
+  
+  /* 🔹 Table Container (For Responsive Design) */
+  .table-container {
+    overflow-x: auto;
+  }
+  
+  /* 🔹 Styled Table */
+  .styled-table {
+    width: 100%;
+    border-collapse: collapse;
+    background-color: #ffffff;
+    color: #333;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.1);
+  }
+  
+  /* 🔹 Table Headers */
+  .styled-table thead {
+    background: linear-gradient(135deg, #f7c9c9, #f1b787);
+
+    color: rgb(8, 8, 8);
+    font-size: 18px;
+  }
+  
+  .styled-table th, .styled-table td {
+    padding: 15px;
+    text-align: center;
+    border-bottom: 1px solid #ddd;
+  }
+  
+  /* 🔹 Alternating row colors */
+  .styled-table tbody tr:nth-child(even) {
+    background-color: #f2f2f2;
+  }
+  
+  .styled-table tbody tr:hover {
+    background-color: #e0e0e0;
+    transition: 0.3s ease-in-out;
+  }
+  
+  /* 🔹 Action Icons */
+  .icon-btn {
+    font-size: 1.4rem;
+    cursor: pointer;
+    transition: transform 0.2s ease-in-out;
+    margin: 0 8px;
+  }
+  
+  .icon-btn:hover {
+    transform: scale(1.2);
+  }
+  
+  /* 📱 Responsive Design */
+  @media (max-width: 768px) {
+    .styled-table th, .styled-table td {
+      font-size: 14px;
+      padding: 10px;
+    }
+  
+    .icon-btn {
+      font-size: 1.2rem;
+    }
+  }
+  
