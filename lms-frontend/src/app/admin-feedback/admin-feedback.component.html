@@ -1,0 +1,16 @@
+<div class="admin-feedback-container">
+    <h2 style="color: rgb(46, 39, 39);">User Feedback</h2>
+    <div class="feedback-list">
+        <div *ngFor="let feedback of feedbacks" class="feedback-card">
+            <p style="color: rgb(8, 8, 8);"><strong>{{ feedback.user.username }}</strong></p>
+            <p style="color: rgb(2, 2, 2);">{{ feedback.feedbackText }}</p>
+            <p style="color: rgb(3, 3, 3);">Rating: 
+                <span *ngFor="let star of [1,2,3,4,5]">
+                    <i class="fas fa-star" [class.filled]="star <= feedback.rating"></i>
+                </span>
+            </p>
+            <i class="fas fa-trash delete-icon" (click)="deleteFeedback(feedback.id)"></i>
+        </div>
+    </div>
+  </div>
+  
