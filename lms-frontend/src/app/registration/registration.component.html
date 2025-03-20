@@ -1,0 +1,98 @@
+<div class="register-container">
+  <div class="register-card">
+    <h2 class="register-title" style="color: rgb(219, 140, 86);">Create Account</h2>
+
+    <form [formGroup]="registerForm" (ngSubmit)="registerUser()">
+      <!-- Full Name -->
+      <div class="form-group">
+        <label for="name">Full Name</label>
+        <input id="name" formControlName="name" type="text" required />
+        <p *ngIf="registerForm.controls['name'].touched && registerForm.controls['name'].invalid" class="error">
+          Name is required.
+        </p>
+      </div>
+
+      <!-- Email -->
+      <div class="form-group">
+        <label for="username">Email</label>
+        <input id="username" formControlName="username" type="email" required />
+        <p *ngIf="registerForm.controls['username'].touched && registerForm.controls['username'].hasError('required')" class="error">
+          Email is required.
+        </p>
+        <p *ngIf="registerForm.controls['username'].touched && registerForm.controls['username'].hasError('email')" class="error">
+          Please enter a valid email.
+        </p>
+      </div>
+
+      <!-- Password -->
+      <div class="form-group">
+        <label for="password">Password</label>
+        <input id="password" formControlName="password" type="password" required />
+        <p *ngIf="registerForm.controls['password'].touched && registerForm.controls['password'].hasError('required')" class="error">
+          Password is required.
+        </p>
+        <p *ngIf="registerForm.controls['password'].touched && registerForm.controls['password'].hasError('minlength')" class="error">
+          Password must be at least 6 characters long.
+        </p>
+      </div>
+
+      <!-- 🔹 Favorite Genres -->
+      <div class="question">
+        <label>Favorite Genres <span class="optional">(Optional)</span></label>
+        <div class="option-container">
+          <button type="button" *ngFor="let genre of genres"
+                  (click)="toggleSelection(genre, 'genre')"
+                  [class.selected]="selectedGenres.includes(genre)">
+            {{ genre }}
+          </button>
+        </div>
+      </div>
+
+      <!-- 🔹 Favorite Authors -->
+      <div class="question">
+        <label>Favorite Authors <span class="optional">(Optional)</span></label>
+        <div class="option-container">
+          <button type="button" *ngFor="let author of authors"
+                  (click)="toggleSelection(author, 'author')"
+                  [class.selected]="selectedAuthors.includes(author)">
+            {{ author }}
+          </button>
+        </div>
+      </div>
+
+      <!-- 🔹 Book Preferences -->
+      <div class="question">
+        <label>Book Preferences <span class="optional">(Optional)</span></label>
+        <div class="option-container">
+          <button type="button" *ngFor="let preference of preferences"
+                  (click)="toggleSelection(preference, 'preference')"
+                  [class.selected]="selectedPreferences.includes(preference)">
+            {{ preference }}
+          </button>
+        </div>
+      </div>
+
+      <!-- 🔹 Reading Frequency -->
+      <div class="question">
+        <label>Monthly Reading Frequency <span class="optional">(Optional)</span></label>
+        <div class="option-container">
+          <button type="button" *ngFor="let freq of readingFrequencies"
+                  (click)="selectFrequency(freq)"
+                  [class.selected]="selectedFrequency === freq">
+            {{ freq }}
+          </button>
+        </div>
+      </div>
+
+      
+
+      <!-- 🔹 Submit Button -->
+      <button type="submit" [disabled]="registerForm.invalid">SIGN UP</button>
+
+      <!-- 🔹 Error Message -->
+      <p *ngIf="errorMessage" class="error">{{ errorMessage }}</p>
+    </form>
+
+    <p class="login-text">Already have an account? <a href="/login">Login here</a></p>
+  </div>
+</div>
