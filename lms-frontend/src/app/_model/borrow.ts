@@ -1,9 +1,0 @@
-export class Borrow {
-    borrowId: number;
-    bookId: number;
-    userId: number;
-    issueDate: Date;
-    returnDate: Date;
-    dueDate: Date;
-    returnRequestStatus: 'PENDING' | 'APPROVED' | 'REJECTED';
-}
