@@ -12,6 +12,7 @@
 .search-box {
   width: 250px; /* Adjust width as needed */
   padding: 8px;
+  margin-left: 10%;
   border: 1px solid #ccc;
   border-radius: 5px;
 }
@@ -53,6 +54,7 @@
   flex-direction: column;
   gap: 15px;
   padding: 10px;
+  align-items: center;
 }
 
 .book-card {
@@ -62,7 +64,7 @@
   border-radius: 12px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   padding: 15px;
-  width: 95%;
+  width: 85%;
   margin-left: 10px;
   transition: transform 0.2s ease-in-out;
 }
@@ -97,6 +99,16 @@
   color: #2d2d2d;
 }
 
+.logo-container {
+  display: flex;
+  align-items: center;
+}
+
+.logo {
+  width: 100px; /* Adjust size */
+  height: auto;
+  margin-right: 20%;
+}
 .book-rating {
   font-size: 1rem;
   color: #f39c12; /* Gold color for rating */
@@ -225,7 +237,7 @@ button {
   font-weight: bold;
   border: none;
   border-radius: 8px;
-  background: #81f05f;
+  background: #227e06;
   color: white;
   transition: background 0.3s, transform 0.2s;
 }
