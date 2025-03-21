@@ -66,6 +66,9 @@
 
   <!-- Request Book Section -->
   <div class="request-book-container">
+    <div class="logo-container">
+      <img src="assets/owl1.png" alt="Wisdom Library Logo" class="logo">
+    </div>
     <h3 class="text-primary">Couldn't find your book? Request one now.</h3>
     <form (ngSubmit)="requestBook()">
       <input type="text" [(ngModel)]="requestedBook.bookName" name="bookName" class="form-control" placeholder="Enter book name" required>
