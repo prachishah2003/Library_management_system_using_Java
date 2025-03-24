@@ -1,0 +1,25 @@
+<table>
+    <thead>
+      <tr>
+        <th>Borrow ID</th>
+        <th>User ID</th>
+        <th>Book ID</th>
+        <th>Borrow Date</th>
+        <th>Due Date</th>
+        <th>Return Status</th>
+        <th>Return Date</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let borrow of borrows">
+        <td>{{ borrow.borrowId }}</td>
+        <td>{{ borrow.userId }}</td>
+        <td>{{ borrow.bookId }}</td>
+        <td>{{ borrow.issueDate  | date:'dd/MM/y (HH:mm)' }}</td>
+        <td>{{ borrow.dueDate  | date:'dd/MM/y (HH:mm)'}}</td>
+        <td>{{ borrow. returnRequestStatus }}</td>
+        <td>{{ borrow.returnDate | date:'dd/MM/y (HH:mm)' }}</td>
+      </tr>
+    </tbody>
+  </table>
+  
