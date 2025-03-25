@@ -1,0 +1,27 @@
+<div class="sidebar" *ngIf="!hideSidebar" [ngClass]="{ 'collapsed': sidebarService.isCollapsed }">
+    <ul class="sidebar-menu">
+      <!-- Admin Links (No Dropdown) -->
+      <li *ngIf="userService.roleMatch(['Admin'])"><a routerLink="/dashboard">Dashboard</a></li>
+      <li *ngIf="userService.roleMatch(['Admin'])"><a routerLink="/books">Book List</a></li>
+      <li *ngIf="userService.roleMatch(['Admin'])"><a routerLink="/create-book">Add Book</a></li>
+      <li *ngIf="userService.roleMatch(['Admin'])"><a routerLink="/return-req">Return Requests</a></li>
+      <li *ngIf="userService.roleMatch(['Admin'])"><a routerLink="/requested-books"> Requested Books</a></li>
+      <li *ngIf="userService.roleMatch(['Admin'])"><a routerLink="/users">User List</a></li>
+      <li *ngIf="userService.roleMatch(['Admin'])"><a routerLink="/borrow-list">Borrow List</a></li>
+      <li *ngIf="userService.roleMatch(['Admin'])"><a routerLink="/overdue"> Overdue Books</a></li>
+      <li *ngIf="userService.roleMatch(['Admin'])"><a routerLink="/add-user"> Register User</a></li>
+      <li *ngIf="userService.roleMatch(['Admin'])"><a routerLink="/view-feedback"> User Feedbacks</a></li>
+  
+      <!-- User Links -->
+      <li *ngIf="userService.roleMatch(['User'])"><a routerLink="/borrow-book"> Borrow Books</a></li>
+      <li *ngIf="userService.roleMatch(['User'])"><a routerLink="/return-book"> Return Books</a></li>
+      <li *ngIf="userService.roleMatch(['User'])"><a routerLink="/profile"> Profile</a></li>
+      <!-- Greeting -->
+  
+      
+      <li *ngIf="isLoggedIn()">
+        <button class="btn btn-danger" (click)="logout()">Logout</button>
+      </li>
+    </ul>
+  </div>
+  

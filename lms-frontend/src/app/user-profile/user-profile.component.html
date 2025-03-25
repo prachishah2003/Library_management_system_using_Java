@@ -1,0 +1,26 @@
+<div class="profile-container">
+    <div class="profile-card">
+      <div class="profile-header">
+        <img src="assets/user.png" alt="User Image" class="profile-image" />
+        <h2>{{ user.username }}</h2>
+        <p class="id">User ID: {{ user.userId }}</p>
+        <p class="address">Address: {{ user.address }}</p>
+      </div>
+  
+      <div class="profile-info">
+        <p><strong>Account Balance:</strong> Rs. {{ user.accountBalance }}</p>
+      </div>
+  
+      <div class="balance-section">
+        <h3>Add Balance</h3>
+        <input type="number" [(ngModel)]="amount" placeholder="Enter amount" class="balance-input" />
+        <button class="btn btn-primary" (click)="addBalance()">Add Funds</button>
+      </div>
+  
+      <!-- Bootstrap Alert for Aesthetic Message -->
+      <div *ngIf="message" class="alert alert-{{ messageType }} alert-dismissible fade show mt-3" role="alert">
+        {{ message }}
+      </div>
+    </div>
+  </div>
+  
