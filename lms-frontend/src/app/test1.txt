@@ -1,1 +1,4 @@
-
+if (borrow.getReturnDate().after(borrow.getDueDate())) {
+        user.setAccountBalance(user.getAccountBalance() - 20);
+        usersRepository.save(user);
+    }
