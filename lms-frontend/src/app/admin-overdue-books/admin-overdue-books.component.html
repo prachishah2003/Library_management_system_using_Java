@@ -1,0 +1,36 @@
+<div class="container">
+    <h2>Overdue Books</h2>
+  
+    <div *ngIf="loading">Loading...</div>
+    <div *ngIf="errorMessage" class="error">{{ errorMessage }}</div>
+  
+    <table *ngIf="!loading && overdueBooks.length > 0">
+      <thead>
+        <tr>
+          <th>Borrow ID</th>
+          <th>Book ID</th>
+          <th>User ID</th>
+          <th>Issue Date</th>
+          <th>Due Date</th>
+          <th>Days Overdue</th>
+          <th>Return Status</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let book of overdueBooks">
+          <td>{{ book.borrowId }}</td>
+          <td>{{ book.bookId }}</td>
+          <td>{{ book.userId }}</td>
+          <td>{{ book.issueDate | date:'mediumDate' }}</td>
+          <td>{{ book.dueDate | date:'mediumDate' }}</td>
+          <td>{{ calculateOverdueDays(book.dueDate) }}</td>
+          <td>{{ book.returnRequestStatus }}</td>
+        </tr>
+      </tbody>
+    </table>
+  
+    <div *ngIf="!loading && overdueBooks.length === 0">
+      <p>No overdue books found.</p>
+    </div>
+  </div>
+  

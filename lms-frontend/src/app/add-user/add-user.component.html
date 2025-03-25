@@ -1,0 +1,54 @@
+<div class="register-container">
+    <div class="register-card">
+      <h2 class="register-title" style="color: rgb(219, 140, 86);">Add New User</h2>
+  
+      <form [formGroup]="addUserForm" (ngSubmit)="addUser()">
+        <!-- Full Name -->
+        <div class="form-group">
+          <label for="name">Full Name</label>
+          <input id="name" formControlName="name" type="text" required />
+          <p *ngIf="addUserForm.controls['name'].touched && addUserForm.controls['name'].invalid" class="error">
+            Name is required.
+          </p>
+        </div>
+  
+        <!-- Email (Username) -->
+        <div class="form-group">
+          <label for="username">Email</label>
+          <input id="username" formControlName="username" type="email" required />
+          <p *ngIf="addUserForm.controls['username'].touched && addUserForm.controls['username'].hasError('required')" class="error">
+            Email is required.
+          </p>
+          <p *ngIf="addUserForm.controls['username'].touched && addUserForm.controls['username'].hasError('email')" class="error">
+            Please enter a valid email.
+          </p>
+        </div>
+  
+        <!-- Password -->
+        <div class="form-group">
+          <label for="password">Password</label>
+          <input id="password" formControlName="password" type="password" required />
+          <p *ngIf="addUserForm.controls['password'].touched && addUserForm.controls['password'].hasError('required')" class="error">
+            Password is required.
+          </p>
+          <p *ngIf="addUserForm.controls['password'].touched && addUserForm.controls['password'].hasError('minlength')" class="error">
+            Password must be at least 6 characters long.
+          </p>
+        </div>
+
+        <div class="form-group">
+          <label for="address">Full Address</label>
+          <input id="address" formControlName="address" type="text" required />
+          <p *ngIf="addUserForm.controls['address'].touched && addUserForm.controls['address'].invalid" class="error">
+            Address is required.
+          </p>
+        </div>
+  
+        <!-- Submit Button -->
+        <button type="submit" [disabled]="addUserForm.invalid">ADD USER</button>
+  
+        <!-- Error Message -->
+        <p *ngIf="errorMessage" class="error">{{ errorMessage }}</p>
+      </form>
+    </div>
+  </div>
